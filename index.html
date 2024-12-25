@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/image/capybara.png" rel="shortcut icon">
+    <link href="/style.css" rel="stylesheet">
+    <title>Merry ChristMas</title>
+
+</head>
+
+<body>
+
+    <!-- Page1 -->
+    <div id="page1">
+        <img src="/image/christmas-socks.png" class="Xmas socks"></img>
+        <img src="/image/deer.png" class="Xmas deer"></img>
+        <!-- <img src="/image/christmas-tree.png" class="Xmas tree"></img> -->
+        <img src="/image/sleigh.png" class="Xmas sleigh"></img>
+        <img src="/image/christmas-lights.png" class="Xmas lights"></img>
+        <div id="loginPannel">
+            <fieldset>
+                <legend>Phiếu thông tin</legend>
+                <form action="">
+                    <table>
+                        <tr>
+                            <th><label for="hoTen">Họ và Tên: </label></th>
+                            <td><input type="text" name="hoTen" id="hoTen"></td>
+                        </tr>
+                        <tr>
+                            <th><label for="pw">Ngày giáng trần: </label></th>
+                            <td><input type="number" name="birthday" id="birthday"></td>
+                        </tr>
+                        <tr>
+                            <th>Chun Dun là: </th>
+                            <td>
+                                <input type="radio" name="identify" value="NY"><span>Bạn trai Quành Quanh :3</span>
+                                <br><input type="radio" name="identify" value="capy"><span>Cặp bi ba rà</span>
+                                <input type="radio" name="identify" id="identify" value="meomeo"><span>Meo meo</span>
+                            </td>
+                        </tr>
+
+                    </table>
+                    <button type="reset" id="reset">Xóa</button>
+                    <button type="button" onclick="valid()" id="login">Đăng nhập</button>
+                </form>
+            </fieldset>
+        </div>
+    </div>
+
+    <!-- Page2 -->
+    <div id="page2">
+        <h2>Cổ tích cho bé 9 chủi</h2>
+        <p id="story">
+            Once upon a time, far from the North of A country called Viet Nam, an angel was born in the twenty eighth
+            night of July. Her full name was
+            <span class="markup1">Phạm Kim Hoàng Oanh (Quành Quanh)</span>
+            . Given a pretty looking and intelligent brain, she grew up with full of happiness and achievements. She
+            have written her name in plenty of competitions from soft skill to hard skill. Despite being a top girl, she
+            casts no rule and arrogant, countless boys were attracted to her but she didn't reply... Until one day. A
+            strange boy from next class put a step in her life, his name was <span class="markup1">Trung Dân</span>, a
+            boy with nothing but his heart. Being moved by his perseverance she, gave him a chance. The story of couple
+            go on.. will they reach a Happy Ending? Only the future can tell...
+        </p>
+        <h1 style="margin:0.5em; text-transform: uppercase;">Kỉ Niệm 17 Tháng Bên Nhau</h1>
+        <h3 style="margin:2px"><span class="markup1">Trung Dân x Hoàng Oanh</span></h3>
+        <h2 style="margin:2px">Giáng Sinh Vui Vẻ Nha </h2>
+        <button onclick="mysterybtn()">Bấm để nhận quà</button>
+        <audio autoplay controls loop id="audio" style="display: none;">
+            <source src="/audio/blue.mp3" type="audio/mpeg">
+            Trình duyệt của bạn không hỗ trợ thẻ audio.
+        </audio>
+    </div>
+
+    <!-- Javascript -->
+    <script>
+        var numPic = 0;
+
+        // Hiển thị thông báo sai thông tin
+        function thongBao(thongDiep) {
+            const inFormBox = document.createElement('div');
+            inFormBox.classList.add('thongBao');
+            inFormBox.innerText = thongDiep;
+
+            const randomX = Math.floor(Math.random() * 80 + 1);
+            inFormBox.style.left = randomX + `svw`;
+
+            document.body.appendChild(inFormBox);
+            setTimeout(() => { inFormBox.remove() }, 8000);
+        }
+
+        // Kiểm tra thông tin đăng nhập
+        function valid() {
+            const name = document.querySelector('#hoTen').value;
+            const birthday = document.querySelector('#birthday').value;
+
+            const iAm = document.querySelector('input[name="identify"]:checked');
+            if (name.toUpperCase() != 'PHẠM KIM HOÀNG OANH') {
+                thongBao("Tên mè cũm quên hả cô nương :<");
+                return false;
+            }
+            if (birthday != 28072005) {
+                thongBao("Chài chài, mì là aiiiii");
+                return false;
+            }
+            if (iAm) {
+                if (iAm.value == 'NY') {
+                }
+                else {
+                    thongBao("Ngừ ta âu có thưn mìn có iu dì mìn :_)");
+                    return false;
+                }
+            }
+            else {
+                alert('Hãy chọn');
+                return false;
+            }
+            
+            const leftSlide = document.querySelectorAll('.leftFloat');
+            const rightSlide = document.querySelectorAll('.rightFloat');
+            const audio = document.querySelector('#audio');
+            audio.play();
+            leftFloat();
+            rightFloat();
+            setInterval(leftFloat, 3000);
+            setInterval(rightFloat, 3000);
+            const page2 = document.querySelector('#page2');
+            page2.style.display = 'flex';
+            page2.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+            document.querySelector('#login').style.display='none';
+            document.querySelector('#reset').style.display='none';
+
+
+        }
+
+        // Hàm gọi sticker trái tim và capybara
+        function floatingSticker() {
+            const sticker = document.createElement('div');
+            sticker.classList.add('floatingEffect');
+
+            // Chọn random sticker
+            let temp = Math.floor(Math.random() * 3 + 1);
+            if (temp == 1)
+                temp = 'capybara.png';
+            else if (temp == 2)
+                temp = 'heart.png';
+            else
+                temp = 'bell.png';
+
+            sticker.style.backgroundImage = `url('/image/${temp}')`;
+            // alert("../image/"+temp)
+
+
+            // Đặt vị trí xuất hiện sticker
+            const positionX = Math.floor(Math.random() * 90);
+            const positionY = Math.floor(Math.random() * 100);
+            const size = Math.floor(Math.random() * 10) + 10;
+            sticker.style.left = positionX + '%';
+            sticker.style.top = -size + '%';
+            sticker.style.width = size + '%';
+            sticker.style.height = size + '%';
+
+
+            document.body.appendChild(sticker);
+
+            setTimeout(() => { sticker.remove() }, 6000);
+
+        }
+        // Hàm gọi dãy hình bên trái
+        function leftFloat() {
+            if (numPic > 30)
+                numPic = 0;
+            const image = document.createElement('div');
+            image.classList.add('leftFloat');
+
+            // Chọn Hình
+            image.style.backgroundImage = `url('/after/anh-${30 - numPic}.png')`;
+            const current = numPic;
+            document.body.appendChild(image);
+            image.addEventListener('click', () => {
+                staticImg(30 - current);
+            });
+
+            // 
+            setTimeout(() => { image.remove() }, 12000);
+            numPic++;
+        }
+
+        // Hàm gọi dãy hình bên phải
+        function rightFloat() {
+            if (numPic > 30)
+                numPic = 0;
+
+            const image = document.createElement('div');
+            image.classList.add('rightFloat');
+
+            // Chọn random hình
+            image.style.backgroundImage = `url('/after/anh-${numPic}.png')`;
+            const current = numPic;
+            document.body.appendChild(image);
+            image.addEventListener('click', () => {
+                staticImg(current);
+            });
+
+            setTimeout(() => { image.remove() }, 12000);
+        }
+
+        // Hàm hiểm thị ảnh khi bấm
+        function staticImg(n) {
+
+            // Tạo box cho ảnh
+            const staticImg = document.createElement('div');
+            staticImg.classList.add('staticImg');
+
+            // Set background image
+            staticImg.style.backgroundImage = `url('/after/anh-${n}.png')`;
+
+            // Tạo nút tắt ảnh
+            const close = document.createElement('div');
+            close.classList.add('close');
+            close.addEventListener('click', () => {
+                staticImg.remove();
+                close.remove();
+            });
+
+            // Append the static image div to the document body or any other element
+            document.body.appendChild(staticImg);
+            document.body.appendChild(close);
+        };
+
+        // Nút bấm bí ẩn hehe
+        function mysterybtn() {
+            const mystery = document.createElement('div');
+            mystery.classList.add('mystery');
+
+            // Chọn random hình
+            const temp = Math.floor(Math.random() * 19 + 1);
+            mystery.style.backgroundImage = `url('/mystery/mystery-${temp}.jpg')`;
+
+            // Chọn random vị trí rơi
+            const positionX = 10 + Math.floor(Math.random() * 60);
+            mystery.style.left = positionX + 'svw';
+            document.body.appendChild(mystery);
+            setTimeout(() => {
+                mystery.remove()
+            }, 5000);
+        }
+
+        // Gọi hiệu ứng sticker
+        setInterval(floatingSticker, 800);
+    </script>
+
+    <!-- // Set tỉ lệ cho page 2 -->
+    <script>
+
+        const p2 = document.querySelector('#page2');
+        const p2Height = p2.getBoundingClientRect().height;
+        if (p2Height > window.innerHeight) {
+            p2.style.height = p2Height + 'px';
+        }
+        else
+            p2.style.height = window.height + 'px';
+    </script>
+</body>
+
+</html>

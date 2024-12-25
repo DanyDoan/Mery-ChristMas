@@ -1,0 +1,268 @@
+body {
+    margin: 0px;
+    font-family: Patrick Hand;
+    font-size: 20px;
+    color: white;
+    background-color: rgb(255, 255, 255);
+    width: 100svw;
+    height: 100svh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.Xmas{
+    position: absolute;
+    z-index: 1;
+}
+.lights {
+    top: -50px;
+    width: 15svw;
+}
+.sleigh {
+    bottom: 0px;
+    height: 20svh;
+}
+.tree{
+    bottom: 0svh;
+    left:0svw;
+    width:  20svw;
+}
+.deer{
+    bottom: 80svh;
+    left:30svw;
+    width: 10svw;
+    transform:  rotate(-20deg);
+}
+.socks{
+    top:0svh;
+    right:30svw;
+    width: 8svw;
+}
+#loginPannel {
+    position: absolute;
+    bottom: 30svh;
+    width: fit-content;
+    height: fit-content;
+    background-color: rgba(239, 108, 108, 0.708);
+    border-radius: 2em;
+    z-index: 1;
+    padding: 2em;
+}
+
+.thongBao {
+    position: fixed;
+    top: -10svh;
+    width: fit-content;
+    height: fit-content;
+    background-color: rgb(5, 34, 115);
+    border: 2px dashed rgb(255, 255, 255);
+    border-radius: 1em;
+    padding: 0.5em;
+    text-transform: uppercase;
+    animation: inForm 8s linear forwards;
+    z-index: 1;
+}
+
+@keyframes inForm {
+    to {
+        transform: translateY(110svh);
+    }
+}
+
+fieldset {
+    color: rgb(255, 253, 253);
+    font-weight: bold;
+    text-transform: uppercase;
+    height: fit-content;
+    text-align: center;
+    border-radius: 2em;
+    padding:1em;
+}
+
+table {
+    width: fit-content;
+}
+
+th,td{
+    font-size: 0.8em;
+    padding: 0.4em;
+}
+
+input {
+    width: fit-content;
+    color: rgb(0, 2, 109);
+    font-weight: bold;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-color: rgb(2, 2, 2);
+    background-color: rgba(5, 2, 57, 0) !important;
+}
+input:focus{
+    background-color: transparent;
+}
+span {
+    color: rgb(0, 0, 0);
+    font-size: 0.9em;
+    font-weight: 400;
+    text-transform: none;
+
+
+}
+
+.floatingEffect,
+.rightFloat,
+.leftFloat {
+    position: fixed;
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.4;
+    z-index: 0;
+    animation: floatingDown 6s linear forwards;
+}
+
+.rightFloat,
+.leftFloat {
+    /* border-radius: 100%; */
+    display: flex;
+    background-color: rgba(253, 253, 253, 0.831);
+    z-index: 1;
+    background-position: center;
+    width: 20%;
+    height: 30%;
+    opacity: 0.95;
+    margin: 0px;
+    padding: 0px;
+    border: 5px dashed rgb(12, 114, 1);
+    border-radius: 1em;
+}
+
+.rightFloat {
+    animation: moveUp 12s linear forwards;
+    opacity: 1;
+    bottom: -35svh;
+    right: 5svw;
+}
+
+.leftFloat {
+    animation: moveDown 12s linear forwards;
+    opacity: 1;
+    top: -35svh;
+    left: 5svw;
+
+}
+
+@keyframes floatingDown {
+    to {
+        transform: translateY(1000px);
+    }
+}
+
+@keyframes moveUp {
+    to {
+        transform: translateY(-1000px);
+    }
+}
+
+@keyframes moveDown {
+    to {
+        transform: translateY(1000px);
+    }
+}
+
+button {
+    margin: 0em 1em;
+    font-size: 0.7em;
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 1em;
+    background-color: pink;
+    padding: 0.5em;
+    color: white;
+    transition: 0.5s;
+    z-index: 2;
+    box-sizing: border-box;
+}
+
+button:hover {
+    scale: 0.9;
+    border-color: pink;
+    background-color: white;
+    color: pink;
+}
+
+#page1 {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 2;
+}
+
+#page2 {
+    position: absolute;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    width: 100svw;
+    height: fit-content;
+    background-color: rgb(151, 0, 0);
+    top: 100svh;
+    z-index: 0;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+#story {
+    padding: 0px 30svw;
+    color: rgb(255, 255, 255);
+    margin: 2px;
+}
+
+.markup1 {
+    color: rgb(214, 200, 239);
+    font-size: 1em;
+    font-style: italic;
+    font-weight: bold;
+}
+
+.mystery {
+    position: fixed;
+    height: 30svh;
+    width: 10svw;
+    top: -10svh;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: rgba(255, 255, 255, 0.854);
+    border: 2px solid white;
+    border-radius: 1em;
+    animation: 5s floatingDown linear forwards;
+    z-index: 5;
+
+}
+.staticImg{
+    position: fixed;
+    top:0svh;
+    left:0svw;
+    height: 100svh;
+    width: 100svw;
+    background-position: center;
+    background-size:contain;
+    background-repeat: no-repeat;
+    background-color: rgba(0, 0, 0, 0.502);
+    z-index: 2;
+}
+.close{
+    position: fixed;
+    top:1svh;
+    right:1svw;
+    height: 5svh;
+    width: 5svw;
+    background-position: center;
+    background-size:contain;
+    background-repeat: no-repeat;
+    background-color: rgba(255, 255, 255, 0.829);
+    background-image: url('/image/close.png');
+    z-index: 3;
+}
