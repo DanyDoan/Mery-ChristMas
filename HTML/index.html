@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../image/capybara.png" rel="shortcut icon">
+    <title>Meo Meo</title>
+    <style>
+        body{
+            margin: 0px;
+            font-family: Patrick Hand;
+            font-size:20px;
+            color:white;
+            background-color:rgb(255, 255, 255);
+            width: 100svw;
+            height: 100svh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+        }
+        #lights{
+            position: absolute;
+            top:-50px;
+            width: 15svw;
+            /* transform: rotate(10deg); */
+        }
+        #sleigh{
+            position: absolute;
+            bottom:0px;
+            height: 20svh;
+            z-index: 2;
+        }
+        #loginPannel{
+            position: absolute;
+            bottom: 30svh;
+            width:fit-content;
+            height: fit-content;
+            background-color: rgba(239, 108, 108, 0.708);
+            border-radius: 1em;
+            z-index: 2;
+            padding:1em;
+        }
+        .thongBao{
+            position: fixed;
+            top:-10svh;
+            width: fit-content;
+            height: fit-content;
+            background-color: rgb(5, 34, 115);
+            border:2px dashed white;
+            border-radius: 1em;
+            padding:0.5em;
+            text-transform: uppercase;
+            animation: inForm 8s linear forwards;
+            z-index: 1;
+        }
+        @keyframes inForm{
+            to{
+                transform:translateY(110svh);
+            }
+        }
+        fieldset{
+            color:rgb(255, 253, 253);
+            font-weight: bold;
+            text-transform: uppercase;
+            height: fit-content;
+            text-align: center;
+        }
+        table{
+            width: fit-content;
+        }
+        
+        th{
+            font-size:0.8em;
+        }
+        input{
+            width: fit-content;
+            color:rgb(245, 244, 244);
+            font-weight: bold;
+            border-top: none;
+            border-left: none;
+            border-right: none;
+            border-color: rgb(2, 2, 2);
+            background-color: rgba(5, 2, 57, 0) !important;
+        }
+        span{
+            color:rgb(79, 243, 136);
+            font-size:0.8em;
+            font-weight: 400;
+            text-transform: none;
+
+            
+        }
+        .floatingEffect, .rightFloat, .leftFloat{
+            position: fixed;
+            background-size:contain;
+            background-repeat: no-repeat;
+            opacity: 0.4;
+            z-index: 0;
+            animation: floatingDown 6s linear forwards;
+        }
+        .rightFloat, .leftFloat{
+            /* border-radius: 100%; */
+            display:flex;
+            background-color: rgba(105, 143, 224, 0.598);
+            z-index: 1;
+            background-position: center;
+            width: 20%;
+            height: 30%;
+            opacity: 0.95;
+            margin:0px;
+            padding:0px;
+            border:5px dashed white;
+            border-radius: 1em;
+        }
+        .rightFloat{
+            animation: moveUp 12s linear forwards;
+            opacity: 1;
+            bottom: -35svh;
+            right:5svw;
+        }
+        .leftFloat{
+            animation: moveDown 12s linear forwards;
+            opacity: 1;
+            top: -35svh;
+            left:5svw;
+
+        }
+
+        @keyframes floatingDown {
+            to{
+                transform: translateY(1000px);
+            }
+        }
+        @keyframes moveUp{
+            to{
+                transform: translateY(-1000px);
+            }
+        }
+        @keyframes moveDown{
+            to{
+                transform: translateY(1000px);
+            }
+        }
+        button{
+            margin:1em;
+            font-size:0.7em;
+            border:2px solid rgb(255, 255, 255);
+            border-radius: 1em;
+            background-color: pink;
+            padding:0.5em;
+            color:white;
+            transition: 0.5s;
+        }
+        button:hover{
+            scale: 0.9;
+            border-color: pink;
+            background-color: white;
+            color:pink;
+        }
+        #page1{
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+        }
+        #page2{
+            position: absolute;
+            /* display: none; */
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            width: 100svw;
+            height: fit-content;    
+            background-color: rgb(151, 0, 0);
+            top:100svh;
+            z-index: 0;
+            
+        }
+        #story{
+            padding: 0px 30svw;
+            color:rgb(255, 255, 255);
+            margin:2px;
+        }
+        .markup1{
+            color:rgb(214, 200, 239);
+            font-size:1em;
+            font-style: italic;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+
+<!-- Page1 -->
+<div id="page1">
+    <img src="../image/sleigh.png" id="sleigh"></img>
+    <img src="../image/christmas-lights.png" id="lights"></img>
+    <div id="loginPannel">
+        <fieldset>
+            <legend>Phiếu thông tin</legend>
+            <form action="">
+                <table>
+                    <tr>
+                        <th><label for="hoTen">Họ và Tên: </label></th>
+                        <td><input type="text" name="hoTen" id="hoTen"></td>
+                    </tr>
+                    <tr>
+                        <th><label for="pw">Ngày giáng trần: </label></th>
+                        <td><input type="number" name="birthday" id="birthday"></td>
+                    </tr>
+                    <tr>
+                        <th>Chun Dun là: </th>
+                        <td>
+                            <input type="radio" name="identify" value="NY"><span>Bạn trai Quành Quanh :3</span>
+                            <br><input type="radio" name="identify" value="capy"><span>Cặp bi ba rà</span>
+                            <input type="radio" name="identify" id="identify" value="meomeo"><span>Meo meo</span>
+                        </td>
+                    </tr>
+
+                </table>
+                <button type="reset">Xóa</button>
+                <button type="button" onclick="valid()">Đăng nhập</button>
+            </form>
+        </fieldset>
+    </div>
+</div>
+
+<!-- Page2 -->
+<div id="page2">
+    <h2>Cổ tích cho bé 9 chủi</h2>
+    <p id="story">
+        Once upon a time, far from the North of A country called Viet Nam, an angel was born in the twenty eighth night of July. Her full name is
+        <span class="markup1">Phạm Kim Hoàng Oanh (Quành Quanh)</span>
+        . Given a pretty looking and intelligent brain, she grew up with full of happiness and achievements. She have written her name in plenty of competitions from soft skill to hard skill. Despite being a top girl, she casts no rule and arrogant, countless boys were attracted to her but she didn't reply... Until one day. A strange boy from next class put a step in her life, his name was <span class="markup1">Trung Dân</span>, a boy with nothing but his heart. Being moved by his perseverance she, gave him a chance. The story of couple go on.. will they reach a Happy Ending? Only the future can tell...
+    </p>
+    <h1 style="margin:0px">Kỉ Niệm 17 Tháng Bên Nhau</h1>
+    <h3><span class="markup1">Trung Dân x Hoàng Oanh</span></h3>
+    <h2>Giáng Sinh Vui Vẻ Nha <3 </h2>
+</div>
+
+
+<!-- Javascript -->
+<script>
+
+// Hiển thị thông báo sai thông tin
+function thongBao(thongDiep){
+    const inFormBox=document.createElement('div');
+    inFormBox.classList.add('thongBao');
+    inFormBox.innerText=thongDiep;
+
+    const randomX=Math.floor(Math.random()*80+1);
+    inFormBox.style.left=randomX+`svw`;
+
+    document.body.appendChild(inFormBox);
+    setTimeout(()=>{inFormBox.remove()},8000);
+}
+
+// Kiểm tra thông tin đăng nhập
+function valid(){
+    const name=document.querySelector('#hoTen').value;
+    const birthday=document.querySelector('#birthday').value;
+
+    const iAm=document.querySelector('input[name="identify"]:checked');
+    if(name.toUpperCase()!='PHẠM KIM HOÀNG OANH'){
+        thongBao("Tên mè cũm quên hả cô nương :<");
+        return false;
+    }
+    if(birthday!=28072005){
+        thongBao("Chài chài, mì là aiiiii");
+        return false;
+    }
+    if(iAm){
+        if(iAm.value=='NY'){
+        }
+        else{
+            thongBao("Ngừ ta âu có thưn mìn có iu dì mìn :_)");
+            return false;
+        }
+    }
+    else{
+        alert('Hãy chọn');
+        return false;
+    }
+    const leftSlide=document.querySelectorAll('.leftFloat');
+    const rightSlide=document.querySelectorAll('.rightFloat');
+    leftFloat();
+    rightFloat();
+    setInterval(leftFloat,3000);
+    setInterval(rightFloat,3000);
+    const page2=document.querySelector('#page2');
+    page2.style.display='flex';
+    page2.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+    });
+    
+}
+
+// Hàm gọi sticker trái tim và capybara
+function floatingSticker(){
+    const sticker=document.createElement('div');
+    sticker.classList.add('floatingEffect');
+
+    // Chọn random sticker
+    let temp=Math.floor(Math.random()*3+1);
+    if(temp==1)
+        temp='capybara.png';
+    else if(temp==2)
+        temp='heart.png';
+    else    
+        temp='bell.png';
+
+    sticker.style.backgroundImage=`url('../image/${temp}')`;
+    // alert("../image/"+temp)
+
+
+    // Đặt vị trí xuất hiện sticker
+    const positionX=Math.floor(Math.random()*90);
+    const positionY=Math.floor(Math.random()*100);
+    const size=Math.floor(Math.random()*10)+10;
+    sticker.style.left=positionX+ '%';
+    sticker.style.top=-size+ '%';
+    sticker.style.width=size+ '%';
+    sticker.style.height=size+ '%';
+
+
+    document.body.appendChild(sticker);
+
+    setTimeout(()=>{sticker.remove()},6000);
+
+}
+
+// Hàm gọi dãy hình bên trái
+function leftFloat(){
+
+const image=document.createElement('div');
+image.classList.add('leftFloat');
+
+// Chọn random hình
+const temp=Math.floor(Math.random()*21+1);
+image.style.backgroundImage=`url('../after/anh-${temp}.png')`;
+document.body.appendChild(image);
+
+setTimeout(()=>{image.remove()},12000);    
+}
+
+// Hàm gọi dãy hình bên phải
+function rightFloat(){
+
+    const image=document.createElement('div');
+    image.classList.add('rightFloat');
+
+    // Chọn random hình
+    const temp=Math.floor(Math.random()*21+1);
+    image.style.backgroundImage=`url('../after/anh-${temp}.png')`;
+    document.body.appendChild(image);
+
+    setTimeout(()=>{image.remove()},12000);    
+}
+
+// Gọi hiệu ứng sticker
+setInterval(floatingSticker,800);
+
+</script>
+</body>
+</html>
