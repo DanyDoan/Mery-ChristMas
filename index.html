@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="/image/capybara.png" rel="shortcut icon">
-    <link href="/style.css" rel="stylesheet">
+    <link href="image/capybara.png" rel="shortcut icon">
+    <link href="style.css" rel="stylesheet">
     <title>Merry ChristMas</title>
 
 </head>
@@ -14,11 +14,11 @@
 
     <!-- Page1 -->
     <div id="page1">
-        <img src="/image/christmas-socks.png" class="Xmas socks"></img>
-        <img src="/image/deer.png" class="Xmas deer"></img>
+        <img src="image/christmas-socks.png" class="Xmas socks"></img>
+        <img src="image/deer.png" class="Xmas deer"></img>
         <!-- <img src="/image/christmas-tree.png" class="Xmas tree"></img> -->
-        <img src="/image/sleigh.png" class="Xmas sleigh"></img>
-        <img src="/image/christmas-lights.png" class="Xmas lights"></img>
+        <img src="image/sleigh.png" class="Xmas sleigh"></img>
+        <img src="image/christmas-lights.png" class="Xmas lights"></img>
         <div id="loginPannel">
             <fieldset>
                 <legend>Phiếu thông tin</legend>
@@ -68,7 +68,7 @@
         <h2 style="margin:2px">Giáng Sinh Vui Vẻ Nha </h2>
         <button onclick="mysterybtn()">Bấm để nhận quà</button>
         <audio autoplay controls loop id="audio" style="display: none;">
-            <source src="/audio/blue.mp3" type="audio/mpeg">
+            <source src="audio/blue.mp3" type="audio/mpeg">
             Trình duyệt của bạn không hỗ trợ thẻ audio.
         </audio>
     </div>
@@ -151,7 +151,7 @@
             else
                 temp = 'bell.png';
 
-            sticker.style.backgroundImage = `url('/image/${temp}')`;
+            sticker.style.backgroundImage = `url('image/${temp}')`;
             // alert("../image/"+temp)
 
 
@@ -178,7 +178,7 @@
             image.classList.add('leftFloat');
 
             // Chọn Hình
-            image.style.backgroundImage = `url('/after/anh-${30 - numPic}.png')`;
+            image.style.backgroundImage = `url('after/anh-${30 - numPic}.png')`;
             const current = numPic;
             document.body.appendChild(image);
             image.addEventListener('click', () => {
@@ -199,7 +199,7 @@
             image.classList.add('rightFloat');
 
             // Chọn random hình
-            image.style.backgroundImage = `url('/after/anh-${numPic}.png')`;
+            image.style.backgroundImage = `url('after/anh-${numPic}.png')`;
             const current = numPic;
             document.body.appendChild(image);
             image.addEventListener('click', () => {
@@ -217,7 +217,7 @@
             staticImg.classList.add('staticImg');
 
             // Set background image
-            staticImg.style.backgroundImage = `url('/after/anh-${n}.png')`;
+            staticImg.style.backgroundImage = `url('after/anh-${n}.png')`;
 
             // Tạo nút tắt ảnh
             const close = document.createElement('div');
@@ -239,7 +239,7 @@
 
             // Chọn random hình
             const temp = Math.floor(Math.random() * 19 + 1);
-            mystery.style.backgroundImage = `url('/mystery/mystery-${temp}.jpg')`;
+            mystery.style.backgroundImage = `url('mystery/mystery-${temp}.jpg')`;
 
             // Chọn random vị trí rơi
             const positionX = 10 + Math.floor(Math.random() * 60);
