@@ -13,6 +13,10 @@ body {
 .Xmas{
     position: absolute;
     z-index: 1;
+    transition: 0.5s;
+}
+.Xmas:hover{
+    transform:scale(1.1);
 }
 .lights {
     top: -50px;
@@ -37,6 +41,16 @@ body {
     top:0svh;
     right:30svw;
     width: 8svw;
+}
+.gift{
+    bottom: 0svh;
+    right:30svw;
+    width: 8svw;
+}
+.snowman{
+    bottom: 0svh;
+    width: 10svw;
+    left:30svw;
 }
 #loginPannel {
     position: absolute;
@@ -91,6 +105,7 @@ th,td{
 input {
     width: fit-content;
     color: rgb(0, 2, 109);
+    /* color:rgb(152, 30, 2); */
     font-weight: bold;
     border-top: none;
     border-left: none;
@@ -116,9 +131,9 @@ span {
     position: fixed;
     background-size: contain;
     background-repeat: no-repeat;
-    opacity: 0.4;
+    opacity: 0.6;
     z-index: 0;
-    animation: floatingDown 6s linear forwards;
+    animation: floatingDown 8s linear forwards;
 }
 
 .rightFloat,
@@ -217,6 +232,7 @@ button:hover {
     padding: 0px 30svw;
     color: rgb(255, 255, 255);
     margin: 2px;
+    z-index: 1;
 }
 
 .markup1 {

@@ -51,6 +51,8 @@
 
     <!-- Page2 -->
     <div id="page2">
+        <img src="image/snowman.png" class="Xmas snowman">
+        <img src="image/gift.png" class="Xmas gift">
         <h2>Cổ tích cho bé 9 chủi</h2>
         <p id="story">
             Once upon a time, far from the North of A country called Viet Nam, an angel was born in the twenty eighth
@@ -67,8 +69,8 @@
         <h3 style="margin:2px"><span class="markup1">Trung Dân x Hoàng Oanh</span></h3>
         <h2 style="margin:2px">Giáng Sinh Vui Vẻ Nha </h2>
         <button onclick="mysterybtn()">Bấm để nhận quà</button>
-        <audio autoplay controls loop id="audio" style="display: none;">
-            <source src="audio/blue.mp3" type="audio/mpeg">
+        <audio controls loops id="audio" style="display: none;">
+            <source src="" type="audio/mpeg">
             Trình duyệt của bạn không hỗ trợ thẻ audio.
         </audio>
     </div>
@@ -76,13 +78,16 @@
     <!-- Javascript -->
     <script>
         var numPic = 0;
-
+        const audio=document.querySelector('#audio');
+        audio.autoplay=true;
+        audio.load();
         // Hiển thị thông báo sai thông tin
         function thongBao(thongDiep) {
             const inFormBox = document.createElement('div');
             inFormBox.classList.add('thongBao');
             inFormBox.innerText = thongDiep;
 
+            // Chọn vị trí xuất hiện
             const randomX = Math.floor(Math.random() * 80 + 1);
             inFormBox.style.left = randomX + `svw`;
 
@@ -113,18 +118,20 @@
                 }
             }
             else {
-                alert('Hãy chọn');
+                thongBao("Vậy thì chún ta lè dì :<");
                 return false;
             }
             
             const leftSlide = document.querySelectorAll('.leftFloat');
             const rightSlide = document.querySelectorAll('.rightFloat');
             const audio = document.querySelector('#audio');
+            audio.src='audio/blue.mp3';
             audio.play();
             leftFloat();
             rightFloat();
             setInterval(leftFloat, 3000);
             setInterval(rightFloat, 3000);
+            setInterval(floatingSticker,1000);
             const page2 = document.querySelector('#page2');
             page2.style.display = 'flex';
             page2.scrollIntoView({
@@ -143,13 +150,15 @@
             sticker.classList.add('floatingEffect');
 
             // Chọn random sticker
-            let temp = Math.floor(Math.random() * 3 + 1);
+            let temp = Math.floor(Math.random() * 5 + 1);
             if (temp == 1)
                 temp = 'capybara.png';
             else if (temp == 2)
                 temp = 'heart.png';
-            else
+            else if (temp == 3)
                 temp = 'bell.png';
+            else
+                temp = 'snowflake.png'
 
             sticker.style.backgroundImage = `url('image/${temp}')`;
             // alert("../image/"+temp)
@@ -158,7 +167,7 @@
             // Đặt vị trí xuất hiện sticker
             const positionX = Math.floor(Math.random() * 90);
             const positionY = Math.floor(Math.random() * 100);
-            const size = Math.floor(Math.random() * 10) + 10;
+            const size = Math.floor(Math.random() * 10) + 8;
             sticker.style.left = positionX + '%';
             sticker.style.top = -size + '%';
             sticker.style.width = size + '%';
@@ -172,17 +181,17 @@
         }
         // Hàm gọi dãy hình bên trái
         function leftFloat() {
-            if (numPic > 30)
+            if (numPic > 29)
                 numPic = 0;
             const image = document.createElement('div');
             image.classList.add('leftFloat');
 
             // Chọn Hình
-            image.style.backgroundImage = `url('after/anh-${30 - numPic}.png')`;
+            image.style.backgroundImage = `url('after/anh-${29 - numPic}.png')`;
             const current = numPic;
             document.body.appendChild(image);
             image.addEventListener('click', () => {
-                staticImg(30 - current);
+                staticImg(29 - current);
             });
 
             // 
@@ -192,7 +201,7 @@
 
         // Hàm gọi dãy hình bên phải
         function rightFloat() {
-            if (numPic > 30)
+            if (numPic > 29)
                 numPic = 0;
 
             const image = document.createElement('div');
@@ -249,9 +258,6 @@
                 mystery.remove()
             }, 5000);
         }
-
-        // Gọi hiệu ứng sticker
-        setInterval(floatingSticker, 800);
     </script>
 
     <!-- // Set tỉ lệ cho page 2 -->
