@@ -32,7 +32,7 @@ body {
     width:  20svw;
 }
 .deer{
-    bottom: 80svh;
+    top: 5svh;
     left:30svw;
     width: 10svw;
     transform:  rotate(-20deg);
@@ -54,13 +54,13 @@ body {
 }
 #loginPannel {
     position: absolute;
-    bottom: 30svh;
+    bottom: 25svh;
     width: fit-content;
     height: fit-content;
     background-color: rgba(239, 108, 108, 0.708);
     border-radius: 2em;
     z-index: 1;
-    padding: 2em;
+    padding:1em;
 }
 
 .thongBao {
@@ -84,7 +84,7 @@ body {
 }
 
 fieldset {
-    color: rgb(255, 253, 253);
+    color: rgba(255, 255, 255, 0.838);
     font-weight: bold;
     text-transform: uppercase;
     height: fit-content;
@@ -104,25 +104,24 @@ th,td{
 
 input {
     width: fit-content;
-    color: rgb(0, 2, 109);
+    color: rgb(140, 236, 239);
     /* color:rgb(152, 30, 2); */
     font-weight: bold;
     border-top: none;
     border-left: none;
     border-right: none;
-    border-color: rgb(2, 2, 2);
+    border-bottom: 2px dashed rgb(1, 31, 55);
     background-color: rgba(5, 2, 57, 0) !important;
 }
 input:focus{
     background-color: transparent;
 }
 span {
-    color: rgb(0, 0, 0);
-    font-size: 0.9em;
-    font-weight: 400;
+    color: rgb(140, 236, 239);
+    font-size: 0.8em;
+    font-weight: bold;
     text-transform: none;
-
-
+    font-family: sans-serif;
 }
 
 .floatingEffect,

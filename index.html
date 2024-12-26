@@ -40,7 +40,13 @@
                                 <input type="radio" name="identify" id="identify" value="meomeo"><span>Meo meo</span>
                             </td>
                         </tr>
-
+                        <tr>
+                            <th>Xác nhận đủ 8 chủi</th>
+                            <td>
+                                <input type="radio" name="old" value="yes"><span>Đủ</span>
+                                <input type="radio" name="old" value="no"><span>Chưa</span>
+                            </td>
+                        </tr>
                     </table>
                     <button type="reset" id="reset">Xóa</button>
                     <button type="button" onclick="valid()" id="login">Đăng nhập</button>
@@ -55,21 +61,21 @@
         <img src="image/gift.png" class="Xmas gift">
         <h2>Cổ tích cho bé 9 chủi</h2>
         <p id="story">
-            Once upon a time, far from the North of A country called Viet Nam, an angel was born in the twenty eighth
+            Once upon a time, far in the South of a country called Viet Nam, an angel was born in the twenty eighth
             night of July. Her full name was
             <span class="markup1">Phạm Kim Hoàng Oanh (Quành Quanh)</span>
             . Given a pretty looking and intelligent brain, she grew up with full of happiness and achievements. She
-            have written her name in plenty of competitions from soft skill to hard skill. Despite being a top girl, she
-            casts no rule and arrogant, countless boys were attracted to her but she didn't reply... Until one day. A
-            strange boy from next class put a step in her life, his name was <span class="markup1">Trung Dân</span>, a
+            have written her name in plenty of competitions. Despite being a top girl, she
+            was neither rude nor arrogant, countless boys were attracted to her but she didn't reply... Until one day. A
+            strange boy from the neighbouring class put a step in her life, his name was <span class="markup1">Trung Dân</span>, a
             boy with nothing but his heart. Being moved by his perseverance she, gave him a chance. The story of couple
             go on.. will they reach a Happy Ending? Only the future can tell...
         </p>
-        <h1 style="margin:0.5em; text-transform: uppercase;">Kỉ Niệm 17 Tháng Bên Nhau</h1>
+        <h1 style="margin:0.3em; text-transform: uppercase;">Kỉ Niệm 17 Tháng Bên Nhau</h1>
         <h3 style="margin:2px"><span class="markup1">Trung Dân x Hoàng Oanh</span></h3>
-        <h2 style="margin:2px">Giáng Sinh Vui Vẻ Nha </h2>
-        <button onclick="mysterybtn()">Bấm để nhận quà</button>
-        <audio controls loops id="audio" style="display: none;">
+        <h2 style="margin:0.3em">Giáng Sinh Vui Vẻ Nha </h2>
+        <button onclick="mysterybtn()">???</button>
+        <audio controls auto loop id="audio" style="display: none;">
             <source src="" type="audio/mpeg">
             Trình duyệt của bạn không hỗ trợ thẻ audio.
         </audio>
@@ -78,8 +84,8 @@
     <!-- Javascript -->
     <script>
         var numPic = 0;
-        const audio=document.querySelector('#audio');
-        audio.autoplay=true;
+        const audio = document.querySelector('#audio');
+        audio.autoplay = true;
         audio.load();
         // Hiển thị thông báo sai thông tin
         function thongBao(thongDiep) {
@@ -97,15 +103,19 @@
 
         // Kiểm tra thông tin đăng nhập
         function valid() {
-            const name = document.querySelector('#hoTen').value;
-            const birthday = document.querySelector('#birthday').value;
-
+            
+            // Lấy thông tin input
+            const name = document.querySelector('#hoTen');
+            const birthday = document.querySelector('#birthday');
             const iAm = document.querySelector('input[name="identify"]:checked');
-            if (name.toUpperCase() != 'PHẠM KIM HOÀNG OANH') {
+            const old = document.querySelector('input[name="old"]:checked');
+            
+            
+            if (name.value.toUpperCase() != 'PHẠM KIM HOÀNG OANH') {
                 thongBao("Tên mè cũm quên hả cô nương :<");
                 return false;
             }
-            if (birthday != 28072005) {
+            if (birthday.value != 28072005) {
                 thongBao("Chài chài, mì là aiiiii");
                 return false;
             }
@@ -121,27 +131,46 @@
                 thongBao("Vậy thì chún ta lè dì :<");
                 return false;
             }
-            
+            if (old) {
+                if (old.value == 'yes') {
+                }
+                else {
+                    thongBao("Con nít hăm đc dô trang nìiiii");
+                    return false;
+                }
+            }
+            else {
+                thongBao("Xin hãy xác nhận chủi");
+                return false
+            }
             const leftSlide = document.querySelectorAll('.leftFloat');
             const rightSlide = document.querySelectorAll('.rightFloat');
             const audio = document.querySelector('#audio');
-            audio.src='audio/blue.mp3';
+            audio.src = 'audio/blue.mp3';
             audio.play();
             leftFloat();
             rightFloat();
             setInterval(leftFloat, 3000);
             setInterval(rightFloat, 3000);
-            setInterval(floatingSticker,1000);
+            setInterval(floatingSticker, 1000);
             const page2 = document.querySelector('#page2');
             page2.style.display = 'flex';
             page2.scrollIntoView({
                 behavior: 'smooth',
                 block: 'start'
             });
-            document.querySelector('#login').style.display='none';
-            document.querySelector('#reset').style.display='none';
 
+            // Ẩn chức năng
+            document.querySelector('#login').style.display = 'none';
+            document.querySelector('#reset').style.display = 'none';
 
+            // Khóa thông tin
+            name.disabled = true;
+            birthday.disabled = true;
+            const radio=document.querySelectorAll('input[type="radio"]');
+            radio.forEach( (r)=>{
+                r.disabled=true;
+            })
         }
 
         // Hàm gọi sticker trái tim và capybara
@@ -150,9 +179,9 @@
             sticker.classList.add('floatingEffect');
 
             // Chọn random sticker
-            let temp = Math.floor(Math.random() * 5 + 1);
+            let temp = Math.floor(Math.random() * 4 + 1);
             if (temp == 1)
-                temp = 'capybara.png';
+                temp = 'snowflake.png';
             else if (temp == 2)
                 temp = 'heart.png';
             else if (temp == 3)
@@ -262,15 +291,16 @@
 
     <!-- // Set tỉ lệ cho page 2 -->
     <script>
-
         const p2 = document.querySelector('#page2');
         const p2Height = p2.getBoundingClientRect().height;
+    
         if (p2Height > window.innerHeight) {
-            p2.style.height = p2Height + 'px';
+            p2.style.height = p2Height + 'px'; // Set to its own height if it's taller than the window
+        } else {
+            p2.style.height = window.innerHeight + 'px'; // Set to the window height if it's shorter
         }
-        else
-            p2.style.height = window.height + 'px';
     </script>
+    
 </body>
 
 </html>
